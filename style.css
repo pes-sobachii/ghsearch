@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+
+*,
+*:before,
+*:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+:focus,
+:active {
+   outline: none;
+}
+
+a:focus,
+a:active {
+   outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+   display: block;
+}
+
+html,
+body {
+   min-height: 100%;
+   width: 100%;
+   font-size: 100%;
+   line-height: 1;
+   font-size: 14px;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+   font-family: inherit;
+}
+
+body{
+   font-family: 'Montserrat', sans-serif;
+   font-size: 24px;
+   background: linear-gradient(36deg, rgba(157,0,161,1) 7%, rgba(128,22,136,1) 33%, rgba(117,32,76,1) 67%, rgba(108,36,48,1) 100%) no-repeat;
+   color: aliceblue;
+}
+
+input::-ms-clear {
+   display: none;
+}
+
+button {
+   cursor: pointer;
+   background-color: inherit;
+}
+
+button::-moz-focus-inner {
+   padding: 0;
+   border: 0;
+}
+
+a,
+a:visited {
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: none;
+}
+
+ul li {
+   list-style: none;
+}
+
+img {
+   vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-size: inherit;
+   font-weight: 400;
+}
+
+.container {
+   max-width: 1440px;
+   margin: 0 auto;
+   padding: 15px;
+   overflow: hidden;
+}
+
+.header__container{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.header {
+   
+}
+
+.header__logo {
+   font-size: 36px;
+}
+
+.form {
+}
+
+.form input{
+   background-color: rgb(223, 25, 104);
+   border-radius: 10px;
+   padding: 10px;
+}
+
+.form input::placeholder{
+   color: rgb(186, 197, 207);
+}
+
+.form button{
+   color: aliceblue;
+   background-color: brown;
+   padding: 10px;
+   border-radius: 10px;
+}
+
+.basic-profile {
+}
+
+.basic-profile__container {
+   padding: 40px 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.basic-profile__info {
+   }
+
+.basic-profile__nickname {
+   font-size: 34px;
+   font-weight: 700;
+   margin-bottom: 30px;
+   text-shadow: 10px 9px 10px rgba(0,0,0,0.75);
+}
+
+.basic-profile__info-list {
+}
+
+.basic-profile__info-list li{
+   margin-bottom: 10px;
+}
+
+.basic-profile__avatar img{
+   height: 200px;
+   width: 200px;
+   border-radius: 50%;
+   box-shadow: 10px 9px 20px 4px rgba(0,0,0,0.75);
+}
+
+.tables-profile {
+}
+
+.tables-profile__container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   text-align: center;
+   color: darkorchid;
+}
+
+.tables-profile__fraction {
+   flex: 0 0 28%;
+   border-radius: 10px;
+   background-color: aliceblue;
+   padding: 30px 0;
+}
+
+.tables-profile__fraction p{
+   letter-spacing: 2px;
+   margin-bottom: 20px;
+}
+
+.tables-profile__fraction span{
+   font-size: 70px;
+}
+
+.repos-profile {
+
+}
+
+.repos-profile__container {
+}
+
+.repos-profile__item {
+   padding: 30px 0;
+   border-bottom: 3px solid darkorchid;
+}
+
+.repos-profile__name {
+   font-size: 30px;
+   font-weight: 700;
+   margin-bottom: 20px;
+}
+
+.repos-profile__info {
+}
+
+.repos-profile__info li{
+   margin-bottom: 10px;
+}
+
