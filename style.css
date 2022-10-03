@@ -154,11 +154,16 @@ h6 {
    justify-content: space-between;
 }
 
-.basic-profile__nickname {
+.section-title{
    font-size: 34px;
    font-weight: 700;
-   margin-bottom: 30px;
+   margin-bottom: 20px;
+   overflow: hidden;
+}
+
+.basic-profile__nickname {
    text-shadow: 10px 9px 10px rgba(0,0,0,0.75);
+   overflow: visible;
 }
 
 .basic-profile__info-list {
@@ -211,12 +216,6 @@ h6 {
    border-bottom: 3px solid darkorchid;
 }
 
-.repos-profile__name {
-   font-size: 30px;
-   font-weight: 700;
-   margin-bottom: 20px;
-}
-
 .repos-profile__info li{
    margin-bottom: 10px;
 }
@@ -254,6 +253,10 @@ h6 {
       flex-direction: column-reverse;
       gap: 30px;
       padding: 20px 15px;
+   }
+
+   .basic-profile__avatar img{
+      margin: 0;
    }
 
    .tables-profile__container {

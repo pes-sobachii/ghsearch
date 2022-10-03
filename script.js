@@ -38,7 +38,7 @@ function setData(data, repos) {
 
    profileMain.innerHTML = `
    <div class="basic-profile__info">
-            <h2 class="basic-profile__nickname">${data.login}</h2>
+            <h2 class="basic-profile__nickname section-title">${data.login}</h2>
             <ul class="basic-profile__info-list">
                <li class="basic-profile__name"><span>Name: </span>${data.name ? data.name : 'no info'}</li>
                <li class="basic-profile__location"><span>Location: </span>${data.location ? data.location : 'no info'}</li>
@@ -61,7 +61,7 @@ function setData(data, repos) {
    repos.forEach( repo => {
       reposString += `
       <div class="repos-profile__item">
-         <h3 class="repos-profile__name">${repo.name}</h3>
+         <h3 class="repos-profile__name section-title">${repo.name}</h3>
          <ul class="repos-profile__info">
             <li class="repos-profile__stargazers">Created at: ${repo.created_at.slice(0,10)}</li>
             <li class="repos-profile__language">Language: ${repo.language ? repo.language : 'no data'}</li>
