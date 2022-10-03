@@ -52,7 +52,7 @@ textarea {
 body{
    font-family: 'Montserrat', sans-serif;
    font-size: 24px;
-   background: linear-gradient(36deg, rgba(157,0,161,1) 7%, rgba(128,22,136,1) 33%, rgba(117,32,76,1) 67%, rgba(108,36,48,1) 100%) no-repeat;
+   background: linear-gradient(80deg, rgba(157,0,161,1) 7%, rgba(128,22,136,1) 33%, rgba(117,32,76,1) 67%, rgba(108,36,48,1) 100%) no-repeat;
    color: aliceblue;
 }
 
