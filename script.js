@@ -14,18 +14,20 @@ function submitHandler(e) {
 }
 
 async function getProfile(username) {
-   try {
       let res = await fetch('https://api.github.com/users/' + username)
       let repos = await fetch('https://api.github.com/users/' + username + '/repos')
+      if (!res.ok && startPlug.style.display == 'none') {
+         startPlug.innerHTML = '<p>Query is incorrect. Please try again</p>'
+         startPlug.style.display = 'block'
+         profileMain.innerHTML = profileSecondary.innerHTML = profileRepos.innerHTML = ''
+         return
+      } else if (!res.ok){
+         startPlug.innerHTML = '<p>Query is incorrect. Please try again</p>'
+         return
+      }
       res = await res.json()
       repos = await repos.json()
-      if (!res.ok || !repos.ok) {
-         throw new Error(`Error! status: ${res.status}`);
-      }
       setData(res, repos)
-   } catch (err) {
-      startPlug.innerHTML = '<p>Query is incorrect. Please try again</p>'
-   }
    
 }
 

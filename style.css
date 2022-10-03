@@ -104,6 +104,10 @@ h6 {
    overflow: hidden;
 }
 
+.header{
+   background-color: rgba(255, 255, 255, 0.1);
+}
+
 .header__container{
    display: flex;
    justify-content: space-between;
@@ -217,9 +221,10 @@ h6 {
    margin-bottom: 10px;
 }
 
-@media (max-width: 500px){
+@media (max-width: 560px){
    body{
       font-size: 14px;
+      text-align: center;
    }
 
    .header__container{
@@ -242,7 +247,7 @@ h6 {
    .start-message p{
       font-size: 24px;
       max-width: 90%;
-      margin: 0 auto;
+      margin: 50px auto 0;
    }
 
    .basic-profile__container {
@@ -257,8 +262,7 @@ h6 {
    }
 
    .tables-profile__fraction {
-      width: 90%;
-      padding: 20px 0;
+      width: 60%;
    }
 
    .tables-profile__fraction p{
@@ -268,5 +272,11 @@ h6 {
    
    .tables-profile__fraction span{
       font-size: 60px;
+   }
+}
+
+@media (max-width: 400px){
+   .tables-profile__fraction {
+      width: 75%;
    }
 }
