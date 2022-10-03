@@ -110,25 +110,22 @@ h6 {
    align-items: center;
 }
 
-.header {
-   
-}
-
 .header__logo {
    font-size: 36px;
 }
 
-.form {
-}
-
 .form input{
-   background-color: rgb(223, 25, 104);
+   background-color: inherit;
    border-radius: 10px;
    padding: 10px;
+   border-color: aliceblue;
+   border-width: 1px;
+   border-style: solid;
+   color: aliceblue;
 }
 
 .form input::placeholder{
-   color: rgb(186, 197, 207);
+   color: rgba(255, 255, 255, 0.5);
 }
 
 .form button{
@@ -138,18 +135,20 @@ h6 {
    border-radius: 10px;
 }
 
-.basic-profile {
+.start-message p{
+   font-size: 36px;
+   font-style: italic;
+   text-align: center;
+   margin-top: 50px;
+   opacity: 0.8;
 }
 
 .basic-profile__container {
-   padding: 40px 0;
+   padding: 40px 15px;
    display: flex;
    align-items: center;
-   justify-content: space-around;
+   justify-content: space-between;
 }
-
-.basic-profile__info {
-   }
 
 .basic-profile__nickname {
    font-size: 34px;
@@ -159,20 +158,24 @@ h6 {
 }
 
 .basic-profile__info-list {
+   max-width: 650px;
 }
 
 .basic-profile__info-list li{
    margin-bottom: 10px;
+   line-height: 1.2;
+}
+
+.basic-profile__info-list li span{
+   font-weight: 700;
 }
 
 .basic-profile__avatar img{
+   margin-right: 20px;
    height: 200px;
    width: 200px;
    border-radius: 50%;
    box-shadow: 10px 9px 20px 4px rgba(0,0,0,0.75);
-}
-
-.tables-profile {
 }
 
 .tables-profile__container {
@@ -199,13 +202,6 @@ h6 {
    font-size: 70px;
 }
 
-.repos-profile {
-
-}
-
-.repos-profile__container {
-}
-
 .repos-profile__item {
    padding: 30px 0;
    border-bottom: 3px solid darkorchid;
@@ -217,10 +213,60 @@ h6 {
    margin-bottom: 20px;
 }
 
-.repos-profile__info {
-}
-
 .repos-profile__info li{
    margin-bottom: 10px;
 }
 
+@media (max-width: 500px){
+   body{
+      font-size: 14px;
+   }
+
+   .header__container{
+      flex-direction: column;
+   }
+
+   .form{
+      margin-top: 15px;
+   }
+
+   .form input{
+      width: 65%;
+   }
+
+   .form button{
+      width: 30%;
+      margin-left: 2%;
+   }
+
+   .start-message p{
+      font-size: 24px;
+      max-width: 90%;
+      margin: 0 auto;
+   }
+
+   .basic-profile__container {
+      flex-direction: column-reverse;
+      gap: 30px;
+      padding: 20px 15px;
+   }
+
+   .tables-profile__container {
+      flex-direction: column;
+      gap: 20px;
+   }
+
+   .tables-profile__fraction {
+      width: 90%;
+      padding: 20px 0;
+   }
+
+   .tables-profile__fraction p{
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+   }
+   
+   .tables-profile__fraction span{
+      font-size: 60px;
+   }
+}

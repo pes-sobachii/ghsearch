@@ -3,6 +3,7 @@ const submit = document.querySelector('.header__button')
 const profileMain = document.querySelector('.basic-profile__container')
 const profileSecondary = document.querySelector('.tables-profile__container')
 const profileRepos = document.querySelector('.repos-profile__container')
+const startPlug = document.querySelector('.start-message')
 
 submit.addEventListener('click', submitHandler)
 
@@ -21,16 +22,19 @@ async function getProfile(username) {
 }
 
 function setData(data, repos) {
-   console.log(data);
+   input.value = ''
+   
+   startPlug.style.display = 'none'
+
    profileMain.innerHTML = `
    <div class="basic-profile__info">
             <h2 class="basic-profile__nickname">${data.login}</h2>
             <ul class="basic-profile__info-list">
-               <li class="basic-profile__name">Name: ${data.login ? data.login : 'no info'} </li>
-               <li class="basic-profile__location">Location: ${data.location ? data.location : 'no info'}</li>
-               <li class="basic-profile__company">Company: ${data.company ? data.company : 'no info'}</li>
-               <li class="basic-profile__email">Email: ${data.email ? data.email : 'no info'}</li>
-               <li class="basic-profile__bio">Bio: ${data.bio ? data.bio : 'no info'}</li>
+               <li class="basic-profile__name"><span>Name: </span>${data.name ? data.name : 'no info'}</li>
+               <li class="basic-profile__location"><span>Location: </span>${data.location ? data.location : 'no info'}</li>
+               <li class="basic-profile__company"><span>Company: </span>${data.company ? data.company : 'no info'}</li>
+               <li class="basic-profile__email"><span>Email: </span>${data.email ? data.email : 'no info'}</li>
+               <li class="basic-profile__bio"><span>Bio: </span>${data.bio ? data.bio : 'no info'}</li>
             </ul>
          </div>
          <div class="basic-profile__avatar">
@@ -42,5 +46,20 @@ function setData(data, repos) {
    <div class="tables-profile__fraction"><p>Following</p><span>${data.following}</span></div>
    <div class="tables-profile__fraction"><p>Repos</p><span>${data.public_repos}</span></div>`
 
-   profileRepos
+   let reposString = ``
+
+   repos.forEach( repo => {
+      reposString += `
+      <div class="repos-profile__item">
+         <h3 class="repos-profile__name">${repo.name}</h3>
+         <ul class="repos-profile__info">
+            <li class="repos-profile__stargazers">Created at: ${repo.created_at.slice(0,10)}</li>
+            <li class="repos-profile__language">Language: ${repo.language ? repo.language : 'no data'}</li>
+            <li class="repos-profile__description">Description: ${repo.description ? repo.description : 'no data'}</li>
+         </ul>
+      </div>
+      `
+   })
+
+   profileRepos.innerHTML = reposString
 }
