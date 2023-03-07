@@ -7,69 +7,79 @@ const startPlug = document.querySelector('.start-message')
 
 submit.addEventListener('click', submitHandler)
 
-function submitHandler(e) {
-   e.preventDefault()
-   const query = input.value
-   getProfile(query)
+async function submitHandler(e) {
+	e.preventDefault()
+	const query = input.value
+	await getProfile(query)
 }
 
 async function getProfile(username) {
-      let res = await fetch('https://api.github.com/users/' + username)
-      let repos = await fetch('https://api.github.com/users/' + username + '/repos')
-      if (!res.ok && startPlug.style.display == 'none') {
-         startPlug.innerHTML = '<p>Query is incorrect. Please try again</p>'
-         startPlug.style.display = 'block'
-         profileMain.innerHTML = profileSecondary.innerHTML = profileRepos.innerHTML = ''
-         return
-      } else if (!res.ok){
-         startPlug.innerHTML = '<p>Query is incorrect. Please try again</p>'
-         return
-      }
-      res = await res.json()
-      repos = await repos.json()
-      setData(res, repos)
-   
+	let res = await fetch('https://api.github.com/users/' + username)
+	let repos = await fetch('https://api.github.com/users/' + username + '/repos')
+	if (!res.ok && startPlug.style.display == 'none') {
+		startPlug.innerHTML = '<p>Query is incorrect. Please try again</p>'
+		startPlug.style.display = 'block'
+		profileMain.innerHTML =
+			profileSecondary.innerHTML =
+			profileRepos.innerHTML =
+				''
+		return
+	} else if (!res.ok) {
+		startPlug.innerHTML = '<p>Query is incorrect. Please try again</p>'
+		return
+	}
+	res = await res.json()
+	repos = await repos.json()
+	setData(res, repos)
 }
 
 function setData(data, repos) {
-   input.value = ''
-   
-   startPlug.style.display = 'none'
+	input.value = ''
 
-   profileMain.innerHTML = `
+	startPlug.style.display = 'none'
+
+	profileMain.innerHTML = `
    <div class="basic-profile__info">
             <h2 class="basic-profile__nickname section-title">${data.login}</h2>
             <ul class="basic-profile__info-list">
-               <li class="basic-profile__name"><span>Name: </span>${data.name ? data.name : 'no info'}</li>
-               <li class="basic-profile__location"><span>Location: </span>${data.location ? data.location : 'no info'}</li>
-               <li class="basic-profile__company"><span>Company: </span>${data.company ? data.company : 'no info'}</li>
-               <li class="basic-profile__email"><span>Email: </span>${data.email ? data.email : 'no info'}</li>
-               <li class="basic-profile__bio"><span>Bio: </span>${data.bio ? data.bio : 'no info'}</li>
+               <li><span>Name: </span>${data.name ? data.name : 'no info'}</li>
+               <li><span>Location: </span>${
+									data.location ? data.location : 'no info'
+								}</li>
+               <li><span>Company: </span>${
+									data.company ? data.company : 'no info'
+								}</li>
+               <li><span>Email: </span>${
+									data.email ? data.email : 'no info'
+								}</li>
+               <li><span>Bio: </span>${data.bio ? data.bio : 'no info'}</li>
             </ul>
          </div>
          <div class="basic-profile__avatar">
             <img src=${data.avatar_url ? data.avatar_url : 'no info'} alt="">
          </div>
    `
-   profileSecondary.innerHTML = `
+	profileSecondary.innerHTML = `
    <div class="tables-profile__fraction"><p>Followers</p><span>${data.followers}</span></div>
    <div class="tables-profile__fraction"><p>Following</p><span>${data.following}</span></div>
    <div class="tables-profile__fraction"><p>Repos</p><span>${data.public_repos}</span></div>`
 
-   let reposString = ``
+	let reposString = ``
 
-   repos.forEach( repo => {
-      reposString += `
+	repos.forEach((repo) => {
+		reposString += `
       <div class="repos-profile__item">
          <h3 class="repos-profile__name section-title">${repo.name}</h3>
          <ul class="repos-profile__info">
-            <li class="repos-profile__stargazers">Created at: ${repo.created_at.slice(0,10)}</li>
-            <li class="repos-profile__language">Language: ${repo.language ? repo.language : 'no data'}</li>
-            <li class="repos-profile__description">Description: ${repo.description ? repo.description : 'no data'}</li>
+            <li>Created at: ${repo.created_at.slice(0, 10)}</li>
+            <li>Language: ${repo.language ? repo.language : 'no data'}</li>
+            <li>Description: ${
+							repo.description ? repo.description : 'no data'
+						}</li>
          </ul>
       </div>
       `
-   })
+	})
 
-   profileRepos.innerHTML = reposString
+	profileRepos.innerHTML = reposString
 }
